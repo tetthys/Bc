@@ -69,4 +69,24 @@ class BC
     {
         return bccomp($this->num, $num, $this->scale) !== 0;
     }
+
+    public function gt(string $num): bool
+    {
+        return $this->isGreaterThan($num);
+    }
+
+    public function gte(string $num): bool
+    {
+        return $this->isGreaterThanOrEqualTo($num);
+    }
+
+    public function lt(string $num): bool
+    {
+        return $this->isLessThan($num);
+    }
+
+    public function lte(string $num): bool
+    {
+        return $this->isLessThanOrEqualTo($num);
+    }
 }

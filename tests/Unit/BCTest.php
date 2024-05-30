@@ -49,4 +49,24 @@ describe('BCTest', function () {
         $result = (new BC)->scale(0)->num('1')->isNotEqualTo('2');
         expect($result)->toBeTrue();
     });
+
+    it('gt', function () {
+        $result = (new BC)->scale(0)->num('2')->gt('1');
+        expect($result)->toBeTrue();
+    });
+
+    it('gte', function () {
+        $result = (new BC)->scale(0)->num('2')->gte('2');
+        expect($result)->toBeTrue();
+    });
+
+    it('lt', function () {
+        $result = (new BC)->scale(0)->num('1')->lt('2');
+        expect($result)->toBeTrue();
+    });
+
+    it('lte', function () {
+        $result = (new BC)->scale(0)->num('1')->lte('1');
+        expect($result)->toBeTrue();
+    });
 });
