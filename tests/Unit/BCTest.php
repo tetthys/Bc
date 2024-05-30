@@ -92,4 +92,6 @@ describe('BCTest', function () {
         $result = (new BC)->scale(0)->num('1')->lte('1');
         expect($result)->toBeTrue();
     });
+
+    // TODO : be chainable
 });
