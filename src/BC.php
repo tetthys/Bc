@@ -20,6 +20,11 @@ class BC
         return $this;
     }
 
+    public function number(string $num): BC
+    {
+        return $this->num($num);
+    }
+
     public function add(string $num): string
     {
         return bcadd($this->num, $num, $this->scale);
@@ -38,6 +43,21 @@ class BC
     public function div(string $num): string
     {
         return bcdiv($this->num, $num, $this->scale);
+    }
+
+    public function subtract(string $num): string
+    {
+        return $this->sub($num);
+    }
+
+    public function multiply(string $num): string
+    {
+        return $this->mul($num);
+    }
+
+    public function divide(string $num): string
+    {
+        return $this->div($num);
     }
 
     public function isGreaterThan(string $num): bool

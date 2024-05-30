@@ -3,20 +3,43 @@
 use Tetthys\Bc\BC;
 
 describe('BCTest', function () {
+    it('number method', function () {
+        $result = (new BC)->scale(2)->number('1')->add('2');
+        expect($result)->toBe('3.00');
+    });
+
     it('add', function () {
         $result = (new BC)->scale(2)->num('1')->add('2');
         expect($result)->toBe('3.00');
     });
+
     it('sub', function () {
         $result = (new BC)->scale(2)->num('1')->sub('2');
         expect($result)->toBe('-1.00');
     });
+
     it('mul', function () {
         $result = (new BC)->scale(2)->num('1')->mul('2');
         expect($result)->toBe('2.00');
     });
+
     it('div', function () {
         $result = (new BC)->scale(2)->num('1')->div('2');
+        expect($result)->toBe('0.50');
+    });
+
+    it('subtract', function () {
+        $result = (new BC)->scale(2)->num('1')->subtract('2');
+        expect($result)->toBe('-1.00');
+    });
+
+    it('multiply', function () {
+        $result = (new BC)->scale(2)->num('1')->multiply('2');
+        expect($result)->toBe('2.00');
+    });
+
+    it('divide', function () {
+        $result = (new BC)->scale(2)->num('1')->divide('2');
         expect($result)->toBe('0.50');
     });
 
