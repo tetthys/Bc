@@ -1,0 +1,23 @@
+{
+    "name": "tetthys/bc",
+    "description": "small and simple but accurate",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Tetthys\\Bc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tetthys"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^2.34"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

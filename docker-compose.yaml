@@ -1,0 +1,9 @@
+services:
+  phptestenv:
+    container_name: phptestenv
+    build:
+      context: './dockerimages/phptestenv'
+    volumes:
+      - .:/workspace
+    stdin_open: true
+    tty: true
