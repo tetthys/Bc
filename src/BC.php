@@ -39,4 +39,34 @@ class BC
     {
         return bcdiv($this->num, $num, $this->scale);
     }
+
+    public function isGreaterThan(string $num): bool
+    {
+        return bccomp($this->num, $num, $this->scale) === 1;
+    }
+
+    public function isGreaterThanOrEqualTo(string $num): bool
+    {
+        return bccomp($this->num, $num, $this->scale) >= 0;
+    }
+
+    public function isLessThan(string $num): bool
+    {
+        return bccomp($this->num, $num, $this->scale) === -1;
+    }
+
+    public function isLessThanOrEqualTo(string $num): bool
+    {
+        return bccomp($this->num, $num, $this->scale) <= 0;
+    }
+
+    public function isEqualTo(string $num): bool
+    {
+        return bccomp($this->num, $num, $this->scale) === 0;
+    }
+
+    public function isNotEqualTo(string $num): bool
+    {
+        return bccomp($this->num, $num, $this->scale) !== 0;
+    }
 }
