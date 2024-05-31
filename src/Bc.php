@@ -4,7 +4,7 @@ namespace Tetthys\Bc;
 
 class Bc
 {
-    public function __construct(public null|string|Bc $num = '0', private int $scale = 0)
+    public function __construct(public ?string $num = '0', private int $scale = 0)
     {
     }
 
