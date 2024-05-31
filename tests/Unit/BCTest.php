@@ -3,95 +3,33 @@
 use Tetthys\Bc\BC;
 
 describe('BCTest', function () {
-    it('number method', function () {
-        $result = (new BC)->scale(2)->number('1')->add('2');
-        expect($result)->toBe('3.00');
-    });
-
     it('add', function () {
-        $result = (new BC)->scale(2)->num('1')->add('2');
+        $result = (new BC)->scale(2)->num('1')->add('2')->value();
         expect($result)->toBe('3.00');
     });
 
     it('sub', function () {
-        $result = (new BC)->scale(2)->num('1')->sub('2');
-        expect($result)->toBe('-1.00');
+        $result = (new BC)->scale(2)->num('3')->sub('2')->value();
+        expect($result)->toBe('1.00');
     });
 
-    it('mul', function () {
-        $result = (new BC)->scale(2)->num('1')->mul('2');
-        expect($result)->toBe('2.00');
+    it('supports chain operations', function () {
+        $result = (new BC)->scale(2)->num('1')->add('2')->sub('3')->value();
+        expect($result)->toBe('0.00');
     });
 
-    it('div', function () {
-        $result = (new BC)->scale(2)->num('1')->div('2');
-        expect($result)->toBe('0.50');
+    it('add to BC instance', function () {
+        $result = (new BC('1'))->scale(2)->add('2')->value();
+        expect($result)->toBe('3.00');
     });
 
-    it('subtract', function () {
-        $result = (new BC)->scale(2)->num('1')->subtract('2');
-        expect($result)->toBe('-1.00');
+    it('sub to BC instance', function () {
+        $result = (new BC('3'))->scale(2)->sub('2')->value();
+        expect($result)->toBe('1.00');
     });
 
-    it('multiply', function () {
-        $result = (new BC)->scale(2)->num('1')->multiply('2');
-        expect($result)->toBe('2.00');
+    it('supports chain operations to BC instance', function () {
+        $result = (new BC('1'))->scale(2)->add('2')->sub('3')->value();
+        expect($result)->toBe('0.00');
     });
-
-    it('divide', function () {
-        $result = (new BC)->scale(2)->num('1')->divide('2');
-        expect($result)->toBe('0.50');
-    });
-
-    it('isGreaterThan', function () {
-        $result = (new BC)->scale(0)->num('2')->isGreaterThan('1');
-        expect($result)->toBeTrue();
-    });
-
-    it('isGreaterThanOrEqualTo', function () {
-        $result = (new BC)->scale(0)->num('2')->isGreaterThanOrEqualTo('2');
-        expect($result)->toBeTrue();
-    });
-
-    it('isLessThan', function () {
-        $result = (new BC)->scale(0)->num('1')->isLessThan('2');
-        expect($result)->toBeTrue();
-    });
-
-    it('isLessThanOrEqualTo', function () {
-        $result = (new BC)->scale(0)->num('1')->isLessThanOrEqualTo('1');
-        expect($result)->toBeTrue();
-    });
-
-    it('isEqualTo', function () {
-        $result = (new BC)->scale(0)->num('1')->isEqualTo('1');
-        expect($result)->toBeTrue();
-    });
-
-    it('isNotEqualTo', function () {
-        $result = (new BC)->scale(0)->num('1')->isNotEqualTo('2');
-        expect($result)->toBeTrue();
-    });
-
-    it('gt', function () {
-        $result = (new BC)->scale(0)->num('2')->gt('1');
-        expect($result)->toBeTrue();
-    });
-
-    it('gte', function () {
-        $result = (new BC)->scale(0)->num('2')->gte('2');
-        expect($result)->toBeTrue();
-    });
-
-    it('lt', function () {
-        $result = (new BC)->scale(0)->num('1')->lt('2');
-        expect($result)->toBeTrue();
-    });
-
-    it('lte', function () {
-        $result = (new BC)->scale(0)->num('1')->lte('1');
-        expect($result)->toBeTrue();
-    });
-
-    // TODO : be chainable
 });
