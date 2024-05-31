@@ -4,7 +4,7 @@ namespace Tetthys\Bc;
 
 class BC
 {
-    public function __construct(public ?string $num = '0', private int $scale = 0)
+    public function __construct(public null|string|BC $num = '0', private int $scale = 0)
     {
     }
 
@@ -14,9 +14,9 @@ class BC
         return $this;
     }
 
-    public function num(string $num): BC
+    public function num(string|BC $num): BC
     {
-        $this->num = $num;
+        $this->num = $num instanceof BC ? $num->value() : $num;
         return $this;
     }
 
@@ -25,13 +25,25 @@ class BC
         return $this->num;
     }
 
-    public function add(string $num): BC
+    public function add(string|BC $num): BC
     {
-        return (new BC(bcadd($this->num, $num, $this->scale)))->scale($this->scale);
+        return (new BC(
+            bcadd(
+                $this->num,
+                $num instanceof BC ? $num->value() : $num,
+                $this->scale
+            )
+        ))->scale($this->scale);
     }
 
-    public function sub(string $num): BC
+    public function sub(string|BC $num): BC
     {
-        return (new BC(bcsub($this->num, $num, $this->scale)))->scale($this->scale);
+        return (new BC(
+            bcsub(
+                $this->num,
+                $num instanceof BC ? $num->value() : $num,
+                $this->scale
+            )
+        ))->scale($this->scale);
     }
 }
