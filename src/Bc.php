@@ -100,4 +100,88 @@ class Bc
             )
         ))->scale($this->scale);
     }
+
+    public function isGreaterThan(string|Bc $num): bool
+    {
+        return bccomp(
+            $this->num,
+            $num instanceof Bc ? $num->value() : $num,
+            $this->scale
+        ) === 1;
+    }
+
+    public function isGreaterThanOrEqual(string|Bc $num): bool
+    {
+        return bccomp(
+            $this->num,
+            $num instanceof Bc ? $num->value() : $num,
+            $this->scale
+        ) >= 0;
+    }
+
+    public function isLessThan(string|Bc $num): bool
+    {
+        return bccomp(
+            $this->num,
+            $num instanceof Bc ? $num->value() : $num,
+            $this->scale
+        ) === -1;
+    }
+
+    public function isLessThanOrEqual(string|Bc $num): bool
+    {
+        return bccomp(
+            $this->num,
+            $num instanceof Bc ? $num->value() : $num,
+            $this->scale
+        ) <= 0;
+    }
+
+    public function isEqual(string|Bc $num): bool
+    {
+        return bccomp(
+            $this->num,
+            $num instanceof Bc ? $num->value() : $num,
+            $this->scale
+        ) === 0;
+    }
+
+    public function isDifferent(string|Bc $num): bool
+    {
+        return bccomp(
+            $this->num,
+            $num instanceof Bc ? $num->value() : $num,
+            $this->scale
+        ) !== 0;
+    }
+
+    public function gt(string|Bc $num): bool
+    {
+        return $this->isGreaterThan($num);
+    }
+
+    public function gte(string|Bc $num): bool
+    {
+        return $this->isGreaterThanOrEqual($num);
+    }
+
+    public function lt(string|Bc $num): bool
+    {
+        return $this->isLessThan($num);
+    }
+
+    public function lte(string|Bc $num): bool
+    {
+        return $this->isLessThanOrEqual($num);
+    }
+
+    public function is(string|Bc $num): bool
+    {
+        return $this->isEqual($num);
+    }
+
+    public function isNot(string|Bc $num): bool
+    {
+        return $this->isDifferent($num);
+    }
 }
