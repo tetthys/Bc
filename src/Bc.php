@@ -14,7 +14,7 @@ class Bc
         return $this;
     }
 
-    private function getValue($num): string
+    private function getValue(mixed $num): string
     {
         return $num instanceof Bc ? $num->value() : $num;
     }
