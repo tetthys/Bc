@@ -14,9 +14,14 @@ class Bc
         return $this;
     }
 
+    private function getValue($num): string
+    {
+        return $num instanceof Bc ? $num->value() : $num;
+    }
+
     public function num(string|Bc $num): Bc
     {
-        $this->num = $num instanceof Bc ? $num->value() : $num;
+        $this->num = $this->getValue($num);
         return $this;
     }
 
@@ -30,7 +35,7 @@ class Bc
         return (new Bc(
             bcadd(
                 $this->num,
-                $num instanceof Bc ? $num->value() : $num,
+                $this->getValue($num),
                 $this->scale
             )
         ))->scale($this->scale);
@@ -41,7 +46,7 @@ class Bc
         return (new Bc(
             bcsub(
                 $this->num,
-                $num instanceof Bc ? $num->value() : $num,
+                $this->getValue($num),
                 $this->scale
             )
         ))->scale($this->scale);
@@ -52,7 +57,7 @@ class Bc
         return (new Bc(
             bcmul(
                 $this->num,
-                $num instanceof Bc ? $num->value() : $num,
+                $this->getValue($num),
                 $this->scale
             )
         ))->scale($this->scale);
@@ -63,7 +68,7 @@ class Bc
         return (new Bc(
             bcdiv(
                 $this->num,
-                $num instanceof Bc ? $num->value() : $num,
+                $this->getValue($num),
                 $this->scale
             )
         ))->scale($this->scale);
@@ -74,7 +79,7 @@ class Bc
         return (new Bc(
             bcmod(
                 $this->num,
-                $num instanceof Bc ? $num->value() : $num,
+                $this->getValue($num),
                 $this->scale
             )
         ))->scale($this->scale);
@@ -85,7 +90,7 @@ class Bc
         return (new Bc(
             bcpow(
                 $this->num,
-                $num instanceof Bc ? $num->value() : $num,
+                $this->getValue($num),
                 $this->scale
             )
         ))->scale($this->scale);
@@ -105,7 +110,7 @@ class Bc
     {
         return bccomp(
             $this->num,
-            $num instanceof Bc ? $num->value() : $num,
+            $this->getValue($num),
             $this->scale
         ) === 1;
     }
@@ -114,7 +119,7 @@ class Bc
     {
         return bccomp(
             $this->num,
-            $num instanceof Bc ? $num->value() : $num,
+            $this->getValue($num),
             $this->scale
         ) >= 0;
     }
@@ -123,7 +128,7 @@ class Bc
     {
         return bccomp(
             $this->num,
-            $num instanceof Bc ? $num->value() : $num,
+            $this->getValue($num),
             $this->scale
         ) === -1;
     }
@@ -132,7 +137,7 @@ class Bc
     {
         return bccomp(
             $this->num,
-            $num instanceof Bc ? $num->value() : $num,
+            $this->getValue($num),
             $this->scale
         ) <= 0;
     }
@@ -141,7 +146,7 @@ class Bc
     {
         return bccomp(
             $this->num,
-            $num instanceof Bc ? $num->value() : $num,
+            $this->getValue($num),
             $this->scale
         ) === 0;
     }
@@ -150,7 +155,7 @@ class Bc
     {
         return bccomp(
             $this->num,
-            $num instanceof Bc ? $num->value() : $num,
+            $this->getValue($num),
             $this->scale
         ) !== 0;
     }
