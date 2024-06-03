@@ -33,7 +33,6 @@ describe('Comparison', function () {
         expect($result)->toBeTrue();
     });
 
-    // shorten
     it('gt', function () {
         $result = (new Bc)->scale(2)->num('10')->gt('1');
         expect($result)->toBeTrue();
