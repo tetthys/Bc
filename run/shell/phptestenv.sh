@@ -1,5 +1,5 @@
 #!/bin/bash
 
-node_container_id=$(docker ps -aqf "name=phptestenv")
+phptestenv_container_id=$(docker ps -aqf "name=phptestenv")
 
-docker exec -it $node_container_id /bin/sh
+docker exec -it $phptestenv_container_id /bin/sh
