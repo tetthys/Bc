@@ -2,7 +2,7 @@
 
 use Tetthys\Bc\Facade\Bc;
 
-describe('BcTest', function () {
+describe('WithFacadeTest', function () {
     it('add', function () {
         $result = Bc::scale(2)->num('1')->add('2')->value();
         expect($result)->toBe('3.00');
