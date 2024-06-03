@@ -30,6 +30,8 @@ That's why I developed this.
 
 # Supported Calculation Methods
 
+Calculation methods expect `string` or `Bc` instance. And they always return `Bc` instance.
+
 ## add
 
 ## sub
