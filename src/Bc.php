@@ -46,4 +46,58 @@ class Bc
             )
         ))->scale($this->scale);
     }
+
+    public function mul(string|Bc $num): Bc
+    {
+        return (new Bc(
+            bcmul(
+                $this->num,
+                $num instanceof Bc ? $num->value() : $num,
+                $this->scale
+            )
+        ))->scale($this->scale);
+    }
+
+    public function div(string|Bc $num): Bc
+    {
+        return (new Bc(
+            bcdiv(
+                $this->num,
+                $num instanceof Bc ? $num->value() : $num,
+                $this->scale
+            )
+        ))->scale($this->scale);
+    }
+
+    public function mod(string|Bc $num): Bc
+    {
+        return (new Bc(
+            bcmod(
+                $this->num,
+                $num instanceof Bc ? $num->value() : $num,
+                $this->scale
+            )
+        ))->scale($this->scale);
+    }
+
+    public function pow(string|Bc $num): Bc
+    {
+        return (new Bc(
+            bcpow(
+                $this->num,
+                $num instanceof Bc ? $num->value() : $num,
+                $this->scale
+            )
+        ))->scale($this->scale);
+    }
+
+    public function sqrt(): Bc
+    {
+        return (new Bc(
+            bcsqrt(
+                $this->num,
+                $this->scale
+            )
+        ))->scale($this->scale);
+    }
 }
