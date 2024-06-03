@@ -21,3 +21,29 @@ It fails for the following reason:
 That's why I developed this.
 
 # Supported Methods
+
+# How to contribute and test in same environment?
+
+### docker-compose up and attach shell to container
+
+```
+docker-compose up && bash ./run/shell/phptestenv.sh
+```
+
+### install dependencies with composer
+
+```
+composer install
+```
+
+### run test
+
+```
+./vendor/bin/pest
+```
+
+Or, you can run test from host OS using
+
+```
+bash ./run/test.sh
+```
