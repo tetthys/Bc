@@ -6,7 +6,7 @@ Bc is a minimal and accurate tool for calculation. It uses bcmath functions inte
 
 Do you think below test will pass?
 
-```
+```php
 it('0.1 + 0.2 = 0.3', function () {
     expect(0.1 + 0.2)->toBe(0.3);
 });
