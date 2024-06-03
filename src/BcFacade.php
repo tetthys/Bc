@@ -1,8 +1,8 @@
 <?php
 
-namespace Tetthys\Bc\Facade;
+namespace Tetthys\Bc;
 
-class Bc
+class BcFacade
 {
     public static function __callStatic($name, $arguments)
     {

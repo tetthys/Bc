@@ -1,6 +1,6 @@
 <?php
 
-use Tetthys\Bc\Facade\Bc;
+use Tetthys\Bc\BcFacade as Bc;
 
 describe('WithFacadeTest', function () {
     it('add', function () {
