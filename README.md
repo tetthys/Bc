@@ -20,7 +20,55 @@ It fails for the following reason:
 
 That's why I developed this.
 
-# Supported Methods
+# Usage Examples
+
+```php
+(new Bc)->scale(2)->num('1')->add('2')->value(); // 3.00
+
+(new Bc)->scale(2)->num('10')->isGreaterThan('1'); // true
+```
+
+# Supported Calculation Methods
+
+## add
+
+## sub
+
+## mul
+
+## div
+
+## mod
+
+## pow
+
+## sqrt
+
+# Supported Comparison Methods
+
+## isGreaterThan
+
+## isGreaterThanOrEqual
+
+## isLessThan
+
+## isLessThanOrEqual
+
+## isEqual
+
+## isDifferent
+
+## gt
+
+## gte
+
+## lt
+
+## lte
+
+## is
+
+## isNot
 
 # How to contribute and test in same environment?
 
