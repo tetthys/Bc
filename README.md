@@ -60,23 +60,81 @@ It also can be used like below:
 (new Bc)->scale(2)->num('10')->add('20')->isGreaterThan((new Bc)->scale(2)->num('1')->add('2'));
 ```
 
+# About `scale` method
+
+It specifies a scale value to be passed on to a next operation. The default value is 0.
+
+```php
+(new Bc)->num('1')->add('2')->value(); // '3'
+```
+
+It supports chaining:
+
+```php
+// with scale 0, '1' + '2' = '3'
+// then scale 2, '3' * '3' = '9.00'
+(new Bc)->num('1')->add('2')->scale(2)->mul('3')->value();
+```
+
 # Supported Calculation Methods
 
 Calculation methods expect `string` or `Bc` instance. And they always return `Bc` instance.
 
 ## add
 
+It adds a number
+
+```php
+(new Bc)->num('1')->add('2')->value(); // '3'
+```
+
 ## sub
+
+It subtracts a number
+
+```php
+(new Bc)->num('2')->sub('1')->value(); // '1'
+```
 
 ## mul
 
+It multiplies a number
+
+```php
+(new Bc)->num('2')->mul('3')->value(); // '6'
+```
+
 ## div
+
+It divides a number
+
+```php
+(new Bc)->num('6')->div('3')->value(); // '2'
+```
 
 ## mod
 
+It calculates the modulus of a number
+
+```php
+(new Bc)->num('10')->mod('7')->value(); // '3'
+```
+
 ## pow
 
+It calculates the power of a number
+
+```php
+(new Bc)->num('2')->pow('3')->value(); // '8'
+```
+
 ## sqrt
+
+It calculates the square root of a number
+
+```php
+(new Bc)->num('9')->sqrt()->value(); // '3'
+```
 
 # Supported Comparison Methods
 
