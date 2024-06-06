@@ -32,7 +32,7 @@ After giving a scale value, you can calculate in order.
 (new Bc)->scale(2)->num('1')->add('2')->mul('3')->value(); // '9.00'
 ```
 
-It can be used like below:
+It also can be used like below:
 
 ```php
 (new Bc('1'))->add(new Bc('2'))->mul(new Bc('3'))->value(); // '9'
@@ -47,13 +47,17 @@ It can be used like below:
 After giving a scale value, you can compare.
 
 ```php
-(new Bc)->scale(2)->num('10')->isGreaterThan('1'); // true
+// true for '10.00' > '1.00'
+
+(new Bc)->scale(2)->num('10')->isGreaterThan('1');
 ```
 
-It can be used like below:
+It also can be used like below:
 
 ```php
-(new Bc)->scale(2)->num('10')->add('20')->isGreaterThan((new Bc)->scale(2)->num('1')->add('2')); // it returns true for '30.00' > '3.00'
+// true for '30.00' > '3.00'
+
+(new Bc)->scale(2)->num('10')->add('20')->isGreaterThan((new Bc)->scale(2)->num('1')->add('2'));
 ```
 
 # Supported Calculation Methods
