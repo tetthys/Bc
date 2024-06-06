@@ -1,8 +1,12 @@
 # Bc
 
-Bc is a minimal and accurate tool for calculation. It uses bcmath functions internally.
+Bc is a minimal and accurate tool for calculation. It uses [bcmath](https://www.php.net/manual/en/book.bc.php) functions internally.
 
-You can get the exact result you want. There are no rounding issue. It's like calculating to N digits using a pen and paper.
+You can get the exact result you want.
+
+There are no rounding issues if you have enough memory.
+
+It's like calculating to N digits using a pen and paper with your hands.
 
 # Why Bc?
 
@@ -20,7 +24,7 @@ It fails for the following reason:
 
 > Failed asserting that 0.30000000000000004 is identical to 0.3.
 
-That's why I developed this.
+That's why I made this.
 
 # Usage Examples
 
@@ -48,16 +52,16 @@ After giving a scale value, you can compare.
 
 ```php
 // true for '10.00' > '1.00'
-
-(new Bc)->scale(2)->num('10')->isGreaterThan('1');
+(new Bc)->scale(2)->num('10')
+    ->isGreaterThan('1');
 ```
 
 It also can be used like below:
 
 ```php
 // true for '30.00' > '3.00'
-
-(new Bc)->scale(2)->num('10')->add('20')->isGreaterThan((new Bc)->scale(2)->num('1')->add('2'));
+(new Bc)->scale(2)->num('10')->add('20')
+    ->isGreaterThan((new Bc)->scale(2)->num('1')->add('2'));
 ```
 
 # About `scale` method
@@ -71,9 +75,9 @@ It specifies a scale value to be passed on to a next operation. The default valu
 It supports chaining:
 
 ```php
-// with scale 0, '1' + '2' = '3'
-// then scale 2, '3' * '3' = '9.00'
-(new Bc)->num('1')->add('2')->scale(2)->mul('3')->value();
+// With scale 0, '1' + '2' = '3'
+// With scale 2, '3' * '3' = '9.00'
+(new Bc)->num('1')->add('2')->scale(2)->mul('3')->value(); // '9.00'
 ```
 
 # Supported Calculation Methods
@@ -140,27 +144,99 @@ It calculates the square root of a number
 
 ## isGreaterThan
 
+It checks if a number is greater than another number
+
+```php
+(new Bc)->num('10')->isGreaterThan('1'); // true
+```
+
 ## isGreaterThanOrEqual
+
+It checks if a number is greater than or equal to another number
+
+```php
+(new Bc)->num('10')->isGreaterThanOrEqual('10'); // true
+```
 
 ## isLessThan
 
+It checks if a number is less than another number
+
+```php
+(new Bc)->num('1')->isLessThan('10'); // true
+```
+
 ## isLessThanOrEqual
+
+It checks if a number is less than or equal to another number
+
+```php
+(new Bc)->num('10')->isLessThanOrEqual('10'); // true
+```
 
 ## isEqual
 
+It checks if a number is equal to another number
+
+```php
+(new Bc)->num('10')->isEqual('10'); // true
+```
+
 ## isDifferent
+
+It checks if a number is different from another number
+
+```php
+(new Bc)->num('10')->isDifferent('1'); // true
+```
 
 ## gt
 
+Same as `isGreaterThan`
+
+```php
+(new Bc)->num('10')->gt('1'); // true
+```
+
 ## gte
+
+Same as `isGreaterThanOrEqual`
+
+```php
+(new Bc)->num('10')->gte('10'); // true
+```
 
 ## lt
 
+Same as `isLessThan`
+
+```php
+(new Bc)->num('1')->lt('10'); // true
+```
+
 ## lte
+
+Same as `isLessThanOrEqual`
+
+```php
+(new Bc)->num('10')->lte('10'); // true
+```
 
 ## is
 
+Same as `isEqual`
+
+```php
+(new Bc)->num('10')->is('10'); // true
+```
+
 ## isNot
+
+Same as `isDifferent`
+
+```php
+(new Bc)->num('10')->isNot('1'); // true
+```
 
 # How to contribute and test in same environment?
 
