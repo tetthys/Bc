@@ -2,17 +2,19 @@
 
 Bc is a minimal and accurate tool for calculation. It uses bcmath functions internally.
 
+You can get the exact result you want. There are no rounding issue. It's like calculating to N digits using a pen and paper.
+
 # Why Bc?
 
 Do you think below test will pass?
 
 ```php
-it('0.1 + 0.2 = 0.3', function () {
+it('shows that 0.1 + 0.2 = 0.3', function () {
     expect(0.1 + 0.2)->toBe(0.3);
 });
 ```
 
-**Unfortunately, 0.1 + 0.2 is not 0.3 in php!**
+**Unfortunately, 0.1 + 0.2 is not 0.3 in php**
 
 It fails for the following reason:
 
@@ -22,10 +24,36 @@ That's why I developed this.
 
 # Usage Examples
 
-```php
-(new Bc)->scale(2)->num('1')->add('2')->value(); // 3.00
+## Calculation
 
+After giving a scale value, you can calculate in order.
+
+```php
+(new Bc)->scale(2)->num('1')->add('2')->mul('3')->value(); // '9.00'
+```
+
+It can be used like below:
+
+```php
+(new Bc('1'))->add(new Bc('2'))->mul(new Bc('3'))->value(); // '9'
+```
+
+```php
+(new Bc)->scale(2)->num((new Bc('1')))->add(new Bc('2'))->mul(new Bc('3'))->value(); // '9.00'
+```
+
+## Comparison
+
+After giving a scale value, you can compare.
+
+```php
 (new Bc)->scale(2)->num('10')->isGreaterThan('1'); // true
+```
+
+It can be used like below:
+
+```php
+(new Bc)->scale(2)->num('10')->add('20')->isGreaterThan((new Bc)->scale(2)->num('1')->add('2')); // it returns true for '30.00' > '3.00'
 ```
 
 # Supported Calculation Methods
