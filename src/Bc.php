@@ -15,6 +15,7 @@ class Bc
     {
         $this->scaleValidator = new ScaleValidator();
         $this->valueValidator = new ValueValidator();
+        $this->num = $this->getValue($num);
     }
 
     public function scale(int $scale): Bc
