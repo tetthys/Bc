@@ -2,12 +2,16 @@
 
 namespace Tetthys\Bc;
 
+use Tetthys\Bc\Validator\ValueValidator;
+
 class Bc
 {
     private int $scale = 0;
+    private ValueValidator $valueValidator;
 
     public function __construct(private string|Bc $num = '0')
     {
+        $this->valueValidator = new ValueValidator();
     }
 
     public function scale(int $scale): Bc
@@ -18,11 +22,7 @@ class Bc
 
     private function getValue(mixed $num): string
     {
-        $value = $num instanceof Bc ? $num->value() : $num;
-        if (!is_numeric($value)) {
-            throw new Exceptions\NumCannotBeUsedForOperation;
-        }
-        return $value;
+        return $this->valueValidator->validate($num instanceof Bc ? $num->value() : $num);
     }
 
     public function num(string|Bc $num): Bc
