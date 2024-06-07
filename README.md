@@ -1,3 +1,39 @@
+- [Bc](#bc)
+- [Why Bc?](#why-bc)
+- [Usage Examples](#usage-examples)
+  - [Calculation](#calculation)
+  - [Comparison](#comparison)
+- [About `scale` method](#about-scale-method)
+- [Supported Calculation Methods](#supported-calculation-methods)
+  - [add](#add)
+  - [sub](#sub)
+  - [mul](#mul)
+  - [div](#div)
+  - [mod](#mod)
+  - [pow](#pow)
+  - [sqrt](#sqrt)
+- [Supported Comparison Methods](#supported-comparison-methods)
+  - [isGreaterThan](#isgreaterthan)
+  - [isGreaterThanOrEqual](#isgreaterthanorequal)
+  - [isLessThan](#islessthan)
+  - [isLessThanOrEqual](#islessthanorequal)
+  - [isEqual](#isequal)
+  - [isDifferent](#isdifferent)
+  - [gt](#gt)
+  - [gte](#gte)
+  - [lt](#lt)
+  - [lte](#lte)
+  - [is](#is)
+  - [isNot](#isnot)
+- [Runtime Exceptions](#runtime-exceptions)
+  - [ScaleCannotBeUsedForOperation](#scalecannotbeusedforoperation)
+  - [ValueCannotBeUsedForOperation](#valuecannotbeusedforoperation)
+- [How to contribute and test in same environment?](#how-to-contribute-and-test-in-same-environment)
+    - [docker-compose up and attach shell to container](#docker-compose-up-and-attach-shell-to-container)
+    - [install dependencies with composer](#install-dependencies-with-composer)
+    - [run test](#run-test)
+
+
 # Bc
 
 Bc is a minimal and accurate tool for calculation. It uses [bcmath](https://www.php.net/manual/en/book.bc.php) functions internally.
@@ -237,6 +273,24 @@ Same as `isDifferent`
 ```php
 (new Bc)->num('10')->isNot('1'); // true
 ```
+
+# Runtime Exceptions
+
+## ScaleCannotBeUsedForOperation
+
+```php
+throw new \Tetthys\Bc\Exceptions\ScaleCannotBeUsedForOperation;
+```
+
+This is thrown when scale is less than 0.
+
+## ValueCannotBeUsedForOperation
+
+```php
+throw new \Tetthys\Bc\Exceptions\ValueCannotBeUsedForOperation;
+```
+
+This is thrown when value is not a number.
 
 # How to contribute and test in same environment?
 
