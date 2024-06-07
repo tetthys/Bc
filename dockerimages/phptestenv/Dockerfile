@@ -1,4 +1,4 @@
-FROM php:8.3.7-alpine
+FROM php:8.1.29-alpine
 
 WORKDIR /workspace
 
