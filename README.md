@@ -30,7 +30,8 @@
   - [ScaleCannotBeUsedForOperation](#scalecannotbeusedforoperation)
   - [ValueCannotBeUsedForOperation](#valuecannotbeusedforoperation)
 - [How to contribute and test in same environment?](#how-to-contribute-and-test-in-same-environment)
-    - [docker-compose up and attach shell to container](#docker-compose-up-and-attach-shell-to-container)
+    - [docker-compose up](#docker-compose-up)
+    - [attach shell to phptestenv container](#attach-shell-to-phptestenv-container)
     - [install dependencies with composer](#install-dependencies-with-composer)
     - [run test](#run-test)
 
@@ -299,10 +300,16 @@ This is thrown when value is not a number.
 
 # How to contribute and test in same environment?
 
-### docker-compose up and attach shell to container
+### docker-compose up
 
 ```
-docker-compose up && bash ./run/shell/phptestenv.sh
+docker-compose up
+```
+
+### attach shell to phptestenv container
+
+```
+bash ./run/shell/phptestenv.sh
 ```
 
 ### install dependencies with composer
