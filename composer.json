@@ -1,23 +1,42 @@
 {
-    "name": "tetthys/bc",
-    "description": "small and simple but accurate",
-    "type": "library",
-    "autoload": {
-        "psr-4": {
-            "Tetthys\\Bc\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "tetthys"
-        }
-    ],
-    "require-dev": {
-        "pestphp/pest": "^2.34"
-    },
-    "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+  "name": "tetthys/bc",
+  "description": "Bc is a small and simple but accurate tool for calculation.",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.1"
+  },
+  "keywords": [
+    "bc",
+    "bcmath",
+    "calculation",
+    "math",
+    "decimal",
+    "integer",
+    "float",
+    "number",
+    "arithmetic",
+    "precision",
+    "rounding",
+    "scale",
+    "operation"
+  ],
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Tetthys\\Bc\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "tetthys"
+    }
+  ],
+  "require-dev": {
+    "pestphp/pest": "^2.34"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
 }
