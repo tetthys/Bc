@@ -2,21 +2,24 @@
 
 namespace Tetthys\Bc;
 
+use Tetthys\Bc\Validator\ScaleValidator;
 use Tetthys\Bc\Validator\ValueValidator;
 
 class Bc
 {
     private int $scale = 0;
+    private ScaleValidator $scaleValidator;
     private ValueValidator $valueValidator;
 
     public function __construct(private string|Bc $num = '0')
     {
+        $this->scaleValidator = new ScaleValidator();
         $this->valueValidator = new ValueValidator();
     }
 
     public function scale(int $scale): Bc
     {
-        $this->scale = $scale;
+        $this->scale = $this->scaleValidator->validate($scale);
         return $this;
     }
 

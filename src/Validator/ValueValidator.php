@@ -11,7 +11,7 @@ class ValueValidator
     public function validate(mixed $value): mixed
     {
         if (!is_numeric($value)) {
-            throw new \Tetthys\Bc\Exceptions\ValueCannotBeUsedForOperation();
+            throw new \Tetthys\Bc\Exceptions\ValueCannotBeUsedForOperation;
         }
         return $value;
     }
