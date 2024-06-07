@@ -34,6 +34,7 @@
     - [attach shell to phptestenv container](#attach-shell-to-phptestenv-container)
     - [install dependencies with composer](#install-dependencies-with-composer)
     - [run test](#run-test)
+- [What I want to say](#what-i-want-to-say)
 
 # System Requirements
 
@@ -329,3 +330,13 @@ Or, you can run test from host OS using
 ```
 bash ./run/test.sh
 ```
+
+# What I want to say
+
+It is currently June 2024.
+
+I'm still learning commit and branch naming conventions and php composer rules.
+
+I hope you understand even if some of the names are bad.
+
+Thank you.
