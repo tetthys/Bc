@@ -18,7 +18,11 @@ class Bc
 
     private function getValue(mixed $num): string
     {
-        return $num instanceof Bc ? $num->value() : $num;
+        $value = $num instanceof Bc ? $num->value() : $num;
+        if (!is_numeric($value)) {
+            throw new Exceptions\NumCannotBeUsedForOperation;
+        }
+        return $value;
     }
 
     public function num(string|Bc $num): Bc
