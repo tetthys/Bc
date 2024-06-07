@@ -1,3 +1,4 @@
+- [System Requirements](#system-requirements)
 - [Bc](#bc)
 - [Why Bc?](#why-bc)
 - [Usage Examples](#usage-examples)
@@ -33,10 +34,14 @@
     - [install dependencies with composer](#install-dependencies-with-composer)
     - [run test](#run-test)
 
+# System Requirements
+
+- php 8.1 or later
+- php bcmath extension
 
 # Bc
 
-Bc is a minimal and accurate tool for calculation. It uses [bcmath](https://www.php.net/manual/en/book.bc.php) functions internally.
+Bc is a small and simple but accurate tool for calculation. It uses [bcmath](https://www.php.net/manual/en/book.bc.php) functions internally.
 
 You can get the exact result you want.
 
