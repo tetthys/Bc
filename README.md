@@ -119,7 +119,7 @@ It supports chaining:
 
 ```php
 // With scale 0, '1' + '2' = '3'
-// With scale 2, '3' * '3' = '9.00'
+// With scale 2, '3.00' * '3.00' = '9.00'
 (new Bc)->num('1')->add('2')->scale(2)->mul('3')->value(); // '9.00'
 ```
 
