@@ -4,6 +4,7 @@
 - [Usage Examples](#usage-examples)
   - [Calculation](#calculation)
   - [Comparison](#comparison)
+- [About `num` method](#about-num-method)
 - [About `scale` method](#about-scale-method)
 - [Supported Calculation Methods](#supported-calculation-methods)
   - [add](#add)
@@ -105,6 +106,20 @@ It also can be used like below:
 // true for '30.00' > '3.00'
 (new Bc)->scale(2)->num('10')->add('20')
     ->isGreaterThan((new Bc)->scale(2)->num('1')->add('2'));
+```
+
+# About `num` method
+
+It specifies a number at which the calculation begins. It always returns `Bc` instance.
+
+```php
+(new Bc)->num('1')
+```
+
+Or you can use the below instead:
+
+```php
+(new Bc('1'))
 ```
 
 # About `scale` method
