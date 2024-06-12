@@ -2,7 +2,7 @@
 
 use Tetthys\Bc\Bc;
 
-describe('Comparison', function () {
+describe('ComparisonTest', function () {
     it('isGreaterThan', function () {
         $result = (new Bc)->scale(2)->num('10')->isGreaterThan('1');
         expect($result)->toBeTrue();

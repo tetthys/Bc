@@ -13,7 +13,7 @@ describe('FromBcInstanceTest', function () {
         expect($result)->toBe('1.00');
     });
 
-    it('supports chain operations', function () {
+    it('chains', function () {
         $result = (new Bc('1'))->scale(2)->add('2')->sub('3')->value();
         expect($result)->toBe('0.00');
     });

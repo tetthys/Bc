@@ -2,7 +2,7 @@
 
 use Tetthys\Bc\Bc;
 
-describe('BcTest', function () {
+describe('WithStringTest', function () {
     it('add', function () {
         $result = (new Bc)->scale(2)->num('1')->add('2')->value();
         expect($result)->toBe('3.00');
