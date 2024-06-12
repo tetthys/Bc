@@ -185,6 +185,8 @@ It calculates the square root of a number
 
 # Supported Comparison Methods
 
+Comparison methods expect `string` or `Bc` instance. And they always return `bool`.
+
 ## isGreaterThan
 
 It checks if a number is greater than another number
