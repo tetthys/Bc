@@ -50,7 +50,7 @@ You can get the exact result you want.
 
 There are no rounding issues if you have enough memory.
 
-It's like calculating to N digits using a pen and paper with your hands.
+It's like calculating to N decimal places using a pen and paper with your hands.
 
 # Why Bc?
 
