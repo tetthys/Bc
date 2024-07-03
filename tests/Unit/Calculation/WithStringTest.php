@@ -33,6 +33,11 @@ describe('WithStringTest', function () {
         expect($result)->toBe('8.00');
     });
 
+    it('powmod', function () {
+        $result = (new Bc)->scale(2)->num('2')->powmod('5', '3')->value();
+        expect($result)->toBe('2.00');
+    });
+
     it('sqrt', function () {
         $result = (new Bc)->scale(2)->num('9')->sqrt()->value();
         expect($result)->toBe('3.00');

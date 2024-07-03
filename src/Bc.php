@@ -171,6 +171,25 @@ class Bc
     }
 
     /**
+     * It calculates the power of a number with modulus
+     *
+     * @param string|Bc $exp
+     * @param string|Bc $mod
+     * @return Bc
+     */
+    public function powmod(string|Bc $exp, string|Bc $mod): Bc
+    {
+        return (new Bc(
+            bcpowmod(
+                $this->num,
+                $this->getValue($exp),
+                $this->getValue($mod),
+                $this->scale
+            )
+        ))->scale($this->scale);
+    }
+
+    /**
      * It calculates the square root of a number
      *
      * @return Bc

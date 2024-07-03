@@ -13,6 +13,7 @@
   - [div](#div)
   - [mod](#mod)
   - [pow](#pow)
+  - [powmod](#powmod)
   - [sqrt](#sqrt)
 - [Supported Comparison Methods](#supported-comparison-methods)
   - [isGreaterThan](#isgreaterthan)
@@ -188,6 +189,14 @@ It calculates the power of a number
 
 ```php
 (new Bc)->num('2')->pow('3')->value(); // '8'
+```
+
+## powmod
+
+It calculates the power of a number with modulus
+
+```php
+(new Bc)->num('2')->powmod('5', '3')->value(); // '2'
 ```
 
 ## sqrt
